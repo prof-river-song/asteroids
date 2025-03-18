@@ -37,6 +37,11 @@ def main():
             if player.collision_check(asteroid):
                 print("Game over!")
                 sys.exit()
+        for asteroid in asteroids:
+            for shot in shots:
+                if shot.collision_check(asteroid):
+                    shot.kill()
+                    asteroid.split()
 
         # limit the framerate to 60
         dt = clock.tick(60) / 1000
